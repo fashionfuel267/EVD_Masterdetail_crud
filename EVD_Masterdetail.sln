@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVD_Masterdetail", "EVD_Masterdetail\EVD_Masterdetail.csproj", "{ECA96377-AA65-480F-91FA-424827209A29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECA96377-AA65-480F-91FA-424827209A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA96377-AA65-480F-91FA-424827209A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA96377-AA65-480F-91FA-424827209A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA96377-AA65-480F-91FA-424827209A29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A96F5022-8B29-457F-ABEA-25235F517C26}
+	EndGlobalSection
+EndGlobal
