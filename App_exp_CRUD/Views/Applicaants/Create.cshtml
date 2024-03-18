@@ -1,0 +1,98 @@
+﻿@model App_exp_CRUD.Models.Applicant
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-12">
+        @using (Html.BeginForm("Create", "Applicaants", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.Name, new { @class = "col-form-label col-2 text-end" })
+                <div class="col-4">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.DOB, new { @class = "col-form-label col-2 text-end" })
+                <div class="col-4">
+                    @Html.EditorFor(x => x.DOB, new { @class = "form-control", type = "number" })
+                    @Html.ValidationMessageFor(x => x.DOB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.PicPath, new { @class = "col-form-label col-2 text-end" })
+                <div class="col-4">
+                    <input type="file" name="Picture" class = "form-control" />
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.IsAvailAble, new { @class = "col-form-label col-2 text-end" })
+                <div class="col-4">
+                    @Html.CheckBoxFor(x => x.IsAvailAble)
+                    @Html.ValidationMessageFor(x => x.IsAvailAble, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-6 mb-1">
+                <div class="d-flex justify-content-sm-between">
+                    <h3>Experince </h3>
+                    <button class="btn btn-secondary btn-sm" type="submit" name="btn" value="add" 
+                            formnovalidate>Add</button>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Designation</th>
+                            <th>Year of Experience</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.ApplicantExperiences.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.TextBoxFor(x => Model.ApplicantExperiences[i].CompanyName, new { @class = "form-control", type = "date" })
+                                    @Html.ValidationMessageFor(x => Model.ApplicantExperiences[i].CompanyName, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(x => Model.ApplicantExperiences[i].Designation, new { @class = "form-control", type = "date" })
+                                    @Html.ValidationMessageFor(x => Model.ApplicantExperiences[i].Designation, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(x => Model.ApplicantExperiences[i].YearofExperience, new { @class = "form-control", type = "date" })
+                                    @Html.ValidationMessageFor(x => Model.ApplicantExperiences[i].YearofExperience, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    <button type="button" onclick="DeleteItem(this)" name="btnremove"  class="btn btn-danger btn-sm" formnovalidate>Remove</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6 mb-1">
+                <button type="submit" name="btn" value="insert" class="btn btn-primary">Save</button>
+            </div>
+        }
+    </div>
+    <div class="col-12">
+        @Html.ActionLink("Barck to list", "Index");
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        function DeleteItem(btn) {
+            $(btn).closest('tr').remove();
+        }
+    </script>
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+}
+

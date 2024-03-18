@@ -1,0 +1,90 @@
+﻿@model IEnumerable<App_exp_CRUD.Models.Applicant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalExperience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PicPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAvailAble)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalExperience)
+        </td>
+        <td>
+           
+            @if(item.PicPath!=null)
+                {
+                    <img src="@Url.Content(item.PicPath)" class="img-fluid" />
+                }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAvailAble)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="4">
+            <h3>Experince Details</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Company
+                        </th>
+                        <th>Designation</th>
+                        <th>Exp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ex in item.ApplicantExperiences)
+                    {
+                        <tr>
+                            <td>
+                                @ex.CompanyName
+                            </td>
+                            <td> @ex.Designation</td>
+                            <td> @ex.YearofExperience</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </td>
+    </tr>
+}
+
+</table>
